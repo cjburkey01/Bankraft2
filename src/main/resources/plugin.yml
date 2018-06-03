@@ -1,0 +1,21 @@
+name: ${project.name}
+main: com.cjburkey.bankraft2.Bankraft2
+authors: [ "CJ Burkey" ]
+database: false
+prefix: ${project.name}
+version: ${project.version}
+website: ${project.url}
+softDepend: [ "Vault" ]
+
+permission:
+  bankraft2.use:
+    description: 'Allow use of the Bankraft2 plugin'
+    default: true
+  bankraft2.admin:
+    description: 'Allow use of the /bank reload command'
+    default: op
+
+commands:
+  bank:
+    description: 'Use the Bankraft2 plugin'
+    usage: '/<command>'

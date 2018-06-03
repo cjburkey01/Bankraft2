@@ -1,0 +1,52 @@
+bank:
+  accountLimit: 3
+
+interest:
+  requireOnline: true
+  interestInterval: 600
+  interestAmount: 0.05
+
+gui:
+  accountIcon: CHEST
+  balanceIcon: GOLD_INGOT
+  actionIcon: EMERALD
+  backIcon: BARRIER
+  updateRate: 5
+
+language:
+  usagePrefix: '&cUsage: &e'
+  accountPrefix: '&aBank accounts:'
+  noAccs: '&cYou have no bank accounts, use &e/bank create&c to create one'
+  cmdNotFound: '&cThat sub-command does not exist'
+  ingameOnly: '&cOnly in-game players may use that sub command'
+  consoleOnly: '&cOnly the server may use that sub command'
+  noPermission: '&cYou do not have permission to use &bBankraft&a2'
+  error: '&cAn internal error occurred, please contact an admin or moderator'
+  reloaded: '&aSuccessfully reloaded &bBankraft&a2'
+  exists: '&cYou already have an account by that name'
+  tooManyAccounts: '&cYou already have the maximum number of accounts'
+  created: '&aBank account created'
+  accountNotFound: '&cYou do not have an account by that name'
+  invalidNumber: '&cPlease enter a valid decimal number'
+  deposit: '&aDeposite successful'
+  withdraw: '&aWithdraw successful'
+  notEnoughInAccount: '&cYou do not have enough money in that account'
+  notEnoughInPocket: '&cYou do not have enough money in your pocket balance'
+  balance: '&aBalance: &e'
+  pocketBalance: '&aPocket Balance: &e'
+  timeSinceLastDeposit: '&aTime since last deposit: &e'
+  timeSinceLastWithdrawal: '&aTime since last withdrawal: &e'
+  timeSinceCreation: '&aTime since creation: &e'
+  account: '&aAccount: &e'
+  accountDeleted: '&aAccount deleted'
+  guiOpen: '&aBank GUI opened'
+  guiAccountListName: 'Bank Accounts'
+  guiAccountActionName: 'Account Actions'
+  guiDeposit: '&aDeposit'
+  guiWithdraw: '&aWithdraw'
+  guiBack: '&cBack'
+  guiDepositTitle: 'Deposit'
+  guiWithdrawTitle: 'Withdraw'
+  guiTotalBankBalance: '&aTotal Balance: '
+  guiClose: '&cClose'
+  interestApplied: '&aInterest applied to all bank accounts'
