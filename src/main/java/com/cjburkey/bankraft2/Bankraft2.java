@@ -37,7 +37,6 @@ public class Bankraft2 extends JavaPlugin {
 			return;
 		}
 		
-		// Loading twice to be safe because Spigot/Bukkit can be weird sometimes and not load the config correctly until a server reboot after first installing the plugin
 		getConfig().options().copyDefaults(true);
 		saveConfig();
 		reloadConfig();
@@ -70,6 +69,7 @@ public class Bankraft2 extends JavaPlugin {
 				timeSinceGuiUpdate = 0;
 				guiHandler.refreshGuis();
 			}
+			bank.perSecond();
 		}, 20, 20);
 	}
 	
@@ -80,10 +80,6 @@ public class Bankraft2 extends JavaPlugin {
 			Util.log("Reloading bank data");
 		}
 		bank = BankHandler.loadBankHandler();
-		if (getServer().getScheduler().scheduleSyncRepeatingTask(this, () -> bank.perSecond(), 20, 20) < 0) {
-			Util.log("Failed to schedule timing task...");
-			Util.log("Try reloading the plugin: /bank reload");
-		}
 	}
 	
 	private void disable() {
