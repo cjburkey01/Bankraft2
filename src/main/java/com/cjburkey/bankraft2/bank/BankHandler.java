@@ -3,6 +3,7 @@ package com.cjburkey.bankraft2.bank;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
+import org.bukkit.entity.Player;
 import com.cjburkey.bankraft2.BankIO;
 import com.cjburkey.bankraft2.Bankraft2;
 import com.cjburkey.bankraft2.Util;
@@ -80,11 +81,28 @@ public class BankHandler {
 	}
 	
 	public void handleInterest() {
+		// Send message to online players
+		for (Player ply : Bankraft2.getInstance().getServer().getOnlinePlayers()) {
+			// Only display an interest update if the player has at least one account
+			if (getAccounts(ply.getUniqueId()).length > 0) {
+				Util.msg(ply, Util.getLang("interestApplied"));
+			}
+		}
+		
+		// Apply interest to all accounts
 		for (Account account : accounts) {
-			if (account.getPlayer() == null && Bankraft2.getInstance().getConfig().getBoolean("interest.requireOnline")) {
+			Player ply = account.getPlayer();
+			boolean online = ply != null;
+			
+			// Ignore accounts for offline players if the config is set to required players to be online to receive interest payments
+			if (!online && Bankraft2.getInstance().getConfig().getBoolean("interest.requireOnline")) {
 				continue;
 			}
+			double prevBalance = account.getBalance();
 			account.setBalance(account.getBalance() * (1.0d + Bankraft2.getInstance().getConfig().getDouble("interest.interestAmount")));
+			if (online) {
+				Util.msg(ply, "  " + Util.getLang("interestBalanceDisplay", account.name, Bankraft2.getInstance().economy.format(prevBalance), Bankraft2.getInstance().economy.format(account.getBalance())));
+			}
 		}
 	}
 	

@@ -29,6 +29,7 @@ public class SubCommandReload extends SubCommand {
 	}
 	
 	public String onCall(SubCommandHandler commandHandler, CommandSender sender, String prefix, String[] args) {
+		Bankraft2.getInstance().reloadConfig();
 		Bankraft2.getInstance().load();
 		return Util.getLang("reloaded");
 	}

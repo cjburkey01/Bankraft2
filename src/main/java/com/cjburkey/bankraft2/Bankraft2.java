@@ -63,7 +63,6 @@ public class Bankraft2 extends JavaPlugin {
 			if (timeSinceInterest >= getConfig().getInt("interest.interestInterval")) {
 				timeSinceInterest = 0;
 				bank.handleInterest();
-				getServer().broadcastMessage(Util.color(Util.getLang("interestApplied")));
 			}
 			if (timeSinceGuiUpdate >= getConfig().getInt("gui.updateRate")) {
 				timeSinceGuiUpdate = 0;
