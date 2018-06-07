@@ -25,7 +25,7 @@ public class SubCommandReload extends SubCommand {
 	}
 	
 	public String getPermission() {
-		return "bankraft.admin";
+		return "bankraft2.admin";
 	}
 	
 	public String onCall(SubCommandHandler commandHandler, CommandSender sender, String prefix, String[] args) {

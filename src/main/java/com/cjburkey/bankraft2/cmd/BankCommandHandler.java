@@ -18,7 +18,7 @@ public class BankCommandHandler implements CommandExecutor {
 		}
 		if (sender instanceof Player) {
 			Player ply = (Player) sender;
-			if (!ply.hasPermission("bankraft.use")) {
+			if (!ply.hasPermission("bankraft2.use")) {
 				Util.msgLang(sender, "noPermission");
 				return true;
 			}
